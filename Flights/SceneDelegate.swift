@@ -10,9 +10,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let view: ViewInput = ViewController()
+        let presenter: ViewOutput & InteractorOutput = Presenter()
+        let interactor: InteractorInput = Interactor()
+        view.output = presenter
+        presenter.view = view
+        presenter.interactor = interactor
+        interactor.output = presenter
+        
+        
+        let navigationController = UINavigationController(rootViewController: view as! UIViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

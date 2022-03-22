@@ -9,25 +9,42 @@ import XCTest
 @testable import Flights
 
 class FlightsTests: XCTestCase {
+    var interactor: InteractorInput!
+    var presenter: Presenter!
+    var view: ViewInput!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+        
+        interactor = Interactor()
+        presenter = Presenter()
+        view = ViewController()
+        view.output = presenter
+        presenter.view = view
+        presenter.interactor = interactor
+        interactor.output = presenter
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        interactor = nil
+        presenter = nil
+        view = nil
+        
+        super.tearDown()
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        presenter.viewDidLoad()
+        XCTAssertFalse(presenter.getVideos().isEmpty)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_setVideos() throws {
+        presenter.viewDidLoad()
+        
+        XCTAssertTrue(presenter.numberOfRows() == 10)
     }
-
+    
+    func test_empty() {
+        XCTAssertTrue(presenter.getVideos().isEmpty)
+    }
 }

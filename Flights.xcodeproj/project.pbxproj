@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02EF14627E54364006587F9 /* InteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14527E54364006587F9 /* InteractorInput.swift */; };
+		A02EF14827E54382006587F9 /* InteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14727E54382006587F9 /* InteractorOutput.swift */; };
+		A02EF14A27E543BA006587F9 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14927E543BA006587F9 /* Interactor.swift */; };
+		A044AA4D27D9684800A78419 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AA4C27D9684800A78419 /* Presenter.swift */; };
+		A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */; };
+		A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; };
+		A08F4BAD27DCC1A700D72A97 /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B73D27D6683D0049343F /* AppDelegate.swift */; };
 		A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B73F27D6683D0049343F /* SceneDelegate.swift */; };
 		A0D0B74227D6683D0049343F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B74127D6683D0049343F /* ViewController.swift */; };
@@ -14,6 +21,9 @@
 		A0D0B74A27D6683D0049343F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D0B74827D6683D0049343F /* LaunchScreen.storyboard */; };
 		A0D0B75527D6683E0049343F /* FlightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B75427D6683E0049343F /* FlightsTests.swift */; };
 		A0D0B76027D6683E0049343F /* FlightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B75F27D6683E0049343F /* FlightsUITests.swift */; };
+		A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B76F27D7B8580049343F /* UIView + Extension.swift */; };
+		A0D0B77227D7BBB10049343F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B77127D7BBB10049343F /* TableViewCell.swift */; };
+		A0D0B77427D7C7430049343F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B77327D7C7430049343F /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +43,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A08F4BAE27DCC1A700D72A97 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A08F4BAD27DCC1A700D72A97 /* Hero in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A02EF14527E54364006587F9 /* InteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInput.swift; sourceTree = "<group>"; };
+		A02EF14727E54382006587F9 /* InteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorOutput.swift; sourceTree = "<group>"; };
+		A02EF14927E543BA006587F9 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		A044AA4C27D9684800A78419 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A0D0B73A27D6683D0049343F /* Flights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D0B73D27D6683D0049343F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0D0B73F27D6683D0049343F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +76,9 @@
 		A0D0B75B27D6683E0049343F /* FlightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D0B75F27D6683E0049343F /* FlightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsUITests.swift; sourceTree = "<group>"; };
 		A0D0B76127D6683E0049343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0D0B76F27D7B8580049343F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		A0D0B77127D7BBB10049343F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A0D0B77327D7C7430049343F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A02EF14C27E543DE006587F9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A02EF14927E543BA006587F9 /* Interactor.swift */,
+				A02EF14527E54364006587F9 /* InteractorInput.swift */,
+				A02EF14727E54382006587F9 /* InteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		A0D0B73127D6683C0049343F = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +143,15 @@
 				A0D0B73D27D6683D0049343F /* AppDelegate.swift */,
 				A0D0B73F27D6683D0049343F /* SceneDelegate.swift */,
 				A0D0B74127D6683D0049343F /* ViewController.swift */,
+				A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */,
+				A044AA4C27D9684800A78419 /* Presenter.swift */,
 				A0D0B74627D6683D0049343F /* Assets.xcassets */,
 				A0D0B74827D6683D0049343F /* LaunchScreen.storyboard */,
 				A0D0B74B27D6683D0049343F /* Info.plist */,
+				A0D0B76F27D7B8580049343F /* UIView + Extension.swift */,
+				A0D0B77127D7BBB10049343F /* TableViewCell.swift */,
+				A0D0B77327D7C7430049343F /* Model.swift */,
+				A02EF14C27E543DE006587F9 /* Interactor */,
 			);
 			path = Flights;
 			sourceTree = "<group>";
@@ -135,12 +184,16 @@
 				A0D0B73627D6683C0049343F /* Sources */,
 				A0D0B73727D6683C0049343F /* Frameworks */,
 				A0D0B73827D6683C0049343F /* Resources */,
+				A08F4BAE27DCC1A700D72A97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Flights;
+			packageProductDependencies = (
+				A08F4BAB27DCC1A700D72A97 /* Hero */,
+			);
 			productName = Flights;
 			productReference = A0D0B73A27D6683D0049343F /* Flights.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +265,9 @@
 				Base,
 			);
 			mainGroup = A0D0B73127D6683C0049343F;
+			packageReferences = (
+				A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */,
+			);
 			productRefGroup = A0D0B73B27D6683D0049343F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,9 +310,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D0B77227D7BBB10049343F /* TableViewCell.swift in Sources */,
+				A044AA4D27D9684800A78419 /* Presenter.swift in Sources */,
+				A02EF14A27E543BA006587F9 /* Interactor.swift in Sources */,
+				A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */,
+				A02EF14627E54364006587F9 /* InteractorInput.swift in Sources */,
 				A0D0B74227D6683D0049343F /* ViewController.swift in Sources */,
+				A0D0B77427D7C7430049343F /* Model.swift in Sources */,
+				A02EF14827E54382006587F9 /* InteractorOutput.swift in Sources */,
 				A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */,
 				A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */,
+				A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +645,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A08F4BAB27DCC1A700D72A97 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0D0B73227D6683C0049343F /* Project object */;
 }
