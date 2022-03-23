@@ -6,8 +6,10 @@ protocol ViewOutput: AnyObject {
     var interactor: InteractorInput! { get set }
     
     func viewDidLoad()
-    func numberOfRows() -> Int
-    func getVideos() -> [Video]
+    func numberOfRows(_ section: Int) -> Int
+    func getVideos() -> [VideoModel]
+    func getSection(_ indexPath: IndexPath) -> VideoModel
+    func titleForHeaderInSection (_ section: Int) -> String
 }
 
 protocol ViewInput: AnyObject {
@@ -48,12 +50,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.numberOfRows()
+        return output.numberOfRows(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = output.getSection(indexPath)
+        let video = section.videos[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier) as! TableViewCell
-        let video = output.getVideos()[indexPath.row]
         cell.set(video: video)
         
         return cell
@@ -62,6 +66,29 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        output.getVideos().count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        containerView.backgroundColor = .brown
+        let label = UILabel()
+        label.text = output.titleForHeaderInSection(section)
+        label.frame = containerView.bounds
+        containerView.addSubview(label)
+        
+        return containerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if output.titleForHeaderInSection(section).isEmpty {
+            return 0
+        } else {
+            return 30
+        }
     }
 }
 

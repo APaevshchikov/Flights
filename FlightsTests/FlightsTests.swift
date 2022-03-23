@@ -41,7 +41,7 @@ class FlightsTests: XCTestCase {
     func test_setVideos() throws {
         presenter.viewDidLoad()
         
-        XCTAssertTrue(presenter.numberOfRows() == 10)
+        XCTAssertTrue(presenter.numberOfRows(0) == 3)
     }
     
     func test_empty() {

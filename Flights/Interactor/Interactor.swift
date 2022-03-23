@@ -25,7 +25,12 @@ extension Interactor: InteractorInput {
         let v9 = Video(image: UIImage(systemName: "video")!, title: "v9 title")
         let v10 = Video(image: UIImage(systemName: "video")!, title: "v10 title")
         
-        output?.getVideosSuccess(videos: [v1, v2, v3, v4, v5, v6, v7, v8, v9, v10])
+        let videoModel1 = VideoModel(sectionName: "1sec", videos: [v1, v2, v3])
+        let videoModel2 = VideoModel(sectionName: "2sec", videos: [v4, v5, v6])
+        let videoModel3 = VideoModel(sectionName: "", videos: [v7, v8, v9, v10])
+        let videoModel4 = VideoModel(sectionName: "4sec", videos: [v2, v4, v6, v8])
+        
+        output?.getVideosSuccess(videos: [videoModel1, videoModel2, videoModel3, videoModel4])
     }
     
     

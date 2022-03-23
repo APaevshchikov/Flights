@@ -8,6 +8,6 @@
 import Foundation
 
 protocol InteractorOutput: AnyObject {
-    func getVideosSuccess(videos: [Video])
+    func getVideosSuccess(videos: [VideoModel])
     func getVideosError(error: Error)
 }

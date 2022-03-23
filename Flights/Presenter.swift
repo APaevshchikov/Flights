@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class Presenter: ViewOutput {
-    private var videos: [Video] = []
+    private var videos: [VideoModel] = []
     
     weak var view: ViewInput!
     var interactor: InteractorInput!
@@ -18,17 +18,26 @@ final class Presenter: ViewOutput {
         interactor.getVideos()
     }
     
-    func numberOfRows() -> Int {
-        videos.count
+    func numberOfRows(_ section: Int) -> Int {
+        let section = videos[section]
+        return section.videos.count
     }
     
-    func getVideos() -> [Video] {
+    func getVideos() -> [VideoModel] {
         videos
+    }
+    
+    func getSection(_ indexPath: IndexPath) -> VideoModel {
+        videos[indexPath.section]
+    }
+    
+    func titleForHeaderInSection (_ section: Int) -> String {
+        videos[section].sectionName
     }
 }
 
 extension Presenter: InteractorOutput {
-    func getVideosSuccess(videos: [Video]) {
+    func getVideosSuccess(videos: [VideoModel]) {
         self.videos = videos
         view.reloadData()
     }
