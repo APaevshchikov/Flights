@@ -11,8 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let view: ViewInput = ViewController()
-        let presenter: ViewOutput & InteractorOutput = Presenter()
+        let presenter = Presenter()
         let interactor: InteractorInput = Interactor()
+        interactor.fakeFlag = false
         view.output = presenter
         presenter.view = view
         presenter.interactor = interactor
