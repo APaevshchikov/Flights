@@ -1,10 +1,3 @@
-//
-//  FlightsTests.swift
-//  FlightsTests
-//
-//  Created by Ars Paev on 07.03.2022.
-//
-
 import XCTest
 @testable import Flights
 
@@ -35,7 +28,7 @@ class FlightsTests: XCTestCase {
 
     func testExample() throws {
         presenter.viewDidLoad()
-        XCTAssertFalse(presenter.getVideos().isEmpty)
+        XCTAssertNotEqual(presenter.getVideosCount(), 0)
     }
     
     func test_setVideos() throws {
@@ -45,6 +38,6 @@ class FlightsTests: XCTestCase {
     }
     
     func test_empty() {
-        XCTAssertTrue(presenter.getVideos().isEmpty)
+        XCTAssertEqual(presenter.getVideosCount(), 0)
     }
 }

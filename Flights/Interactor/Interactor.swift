@@ -1,19 +1,13 @@
-//
-//  Interactor.swift
-//  Flights
-//
-//  Created by Ars Paev on 19.03.2022.
-//
-
 import Foundation
 import UIKit
 
 class Interactor {
     weak var output: InteractorOutput?
-}
-
-extension Interactor: InteractorInput {
-    func getVideos() {
+    
+    private func setupVideos(
+        success: ([VideoModel]) -> Void,
+        fail: (MyCustomError) -> Void
+    ) {
         let v1 = Video(image: UIImage(systemName: "video")!, title: "v1 title")
         let v2 = Video(image: UIImage(systemName: "video")!, title: "v2 title")
         let v3 = Video(image: UIImage(systemName: "video")!, title: "v3 title")
@@ -30,8 +24,27 @@ extension Interactor: InteractorInput {
         let videoModel3 = VideoModel(sectionName: "", videos: [v7, v8, v9, v10])
         let videoModel4 = VideoModel(sectionName: "4sec", videos: [v2, v4, v6, v8])
         
-        output?.getVideosSuccess(videos: [videoModel1, videoModel2, videoModel3, videoModel4])
+        let results = [videoModel1, videoModel2, videoModel3, videoModel4]
+        
+        results.forEach { result in
+            if result.videos.isEmpty {
+                fail(.dontCare)
+            } else {
+                success(results)
+            }
+        }
     }
-    
-    
+}
+
+extension Interactor: InteractorInput {
+    func getVideos() {
+        setupVideos(
+            success: { videos in
+                output?.getVideosSuccess(videos: videos)
+            },
+            fail: { error in
+                output?.getVideosFail(error: error)
+            }
+        )
+    }
 }

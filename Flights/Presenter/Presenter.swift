@@ -23,8 +23,8 @@ final class Presenter: ViewOutput {
         return section.videos.count
     }
     
-    func getVideos() -> [VideoModel] {
-        videos
+    func getVideosCount() -> Int {
+        videos.count
     }
     
     func getSection(_ indexPath: IndexPath) -> VideoModel {
@@ -42,9 +42,7 @@ extension Presenter: InteractorOutput {
         view.reloadData()
     }
     
-    func getVideosError(error: Error) {
+    func getVideosFail(error: MyCustomError) {
         videos = []
     }
-    
-    
 }

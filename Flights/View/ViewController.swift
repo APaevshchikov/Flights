@@ -1,22 +1,4 @@
 import UIKit
-import Hero
-
-protocol ViewOutput: AnyObject {
-    var view: ViewInput! { get set }
-    var interactor: InteractorInput! { get set }
-    
-    func viewDidLoad()
-    func numberOfRows(_ section: Int) -> Int
-    func getVideos() -> [VideoModel]
-    func getSection(_ indexPath: IndexPath) -> VideoModel
-    func titleForHeaderInSection (_ section: Int) -> String
-}
-
-protocol ViewInput: AnyObject {
-    var output: ViewOutput! { get set }
-    
-    func reloadData()
-}
 
 class ViewController: UIViewController {
     private let tableView = UITableView()
@@ -27,14 +9,8 @@ class ViewController: UIViewController {
         
         title = "Videos or Flights"
         configureTableView()
-        configureHero()
         
         output.viewDidLoad()
-    }
-    
-    private func configureHero() {
-        self.hero.isEnabled = true
-        view.hero.id = "ironMan"
     }
     
     private func configureTableView() {
@@ -69,7 +45,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        output.getVideos().count
+        output.getVideosCount()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
