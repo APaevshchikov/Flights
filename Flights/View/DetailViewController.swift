@@ -9,6 +9,8 @@ import UIKit
 import Hero
 
 class DetailViewController: UIViewController {
+    let button = UIButton()
+    var image = UIImage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +22,12 @@ class DetailViewController: UIViewController {
         backgroundView.backgroundColor = .systemBackground
         view = backgroundView
         
-        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(button)
+        image = UIImage(systemName: "video")!
+        button.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
         button.backgroundColor = .systemPink
-        let image = UIImage(systemName: "video")!
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
