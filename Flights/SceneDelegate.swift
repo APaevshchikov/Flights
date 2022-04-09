@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let view: ViewInput = ViewController()
         let presenter = Presenter()
         let interactor: InteractorInput = Interactor()
-        interactor.fakeFlag = false
         view.output = presenter
         presenter.view = view
         presenter.interactor = interactor

@@ -3,16 +3,21 @@ import UIKit
 
 class Interactor {
     weak var output: InteractorOutput?
-    var fakeFlag: Bool = false
     
     private func setupVideos(
-        success: ([VideoModel]) -> Void,
-        fail: (MyCustomError) -> Void
+        success: @escaping ([VideoModel]) -> Void,
+        fail: @escaping (MyCustomError) -> Void
     ) {
-        if let results = DataSourceManager.videoModels(fakeFlag: fakeFlag) {
-            success(results)
-        } else {
-            fail(.dontCare)
+        DispatchQueue.global(qos: .utility).async {
+            if let results = DataSourceManager.videoModels() {
+                DispatchQueue.main.async {
+                    success(results)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    fail(.dontCare)
+                }
+            }
         }
     }
 }
@@ -20,10 +25,10 @@ class Interactor {
 extension Interactor: InteractorInput {
     func getVideos() {
         setupVideos(
-            success: { videos in
+            success: { [weak output] videos in
                 output?.getVideosSuccess(videos: videos)
             },
-            fail: { error in
+            fail: { [weak output] error in
                 output?.getVideosFail(error: error)
             }
         )

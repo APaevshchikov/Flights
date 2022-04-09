@@ -1,7 +1,7 @@
 import UIKit
 
 struct DataSourceManager {
-    static func videoModels(fakeFlag: Bool) -> [VideoModel]? {
+    static func videoModels() -> [VideoModel]? {
         let v1 = Video(image: UIImage(systemName: "video")!, title: "v1 title")
         let v2 = Video(image: UIImage(systemName: "video")!, title: "v2 title")
         let v3 = Video(image: UIImage(systemName: "video")!, title: "v3 title")
@@ -18,10 +18,6 @@ struct DataSourceManager {
         let videoModel3 = VideoModel(sectionName: "", videos: [v7, v8, v9, v10])
         let videoModel4 = VideoModel(sectionName: "4sec", videos: [v2, v4, v6, v8])
         
-        if fakeFlag {
-            return nil
-        } else {
-            return [videoModel1, videoModel2, videoModel3, videoModel4]
-        }
+        return [videoModel1, videoModel2, videoModel3, videoModel4]
     }
 }

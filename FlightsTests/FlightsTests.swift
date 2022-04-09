@@ -10,7 +10,6 @@ class FlightsTests: XCTestCase {
         super.setUp()
         
         interactor = Interactor()
-        interactor.fakeFlag = false
         presenter = Presenter()
         view = ViewController()
         view.output = presenter
@@ -28,7 +27,7 @@ class FlightsTests: XCTestCase {
     }
 
     func testExample() throws {
-        presenter.viewDidLoad()
+        interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
         XCTAssertNotEqual(presenter.getVideosCount(), 0)
     }
     
@@ -37,17 +36,9 @@ class FlightsTests: XCTestCase {
         let sectionNumber = 0
         
         // when
-        presenter.viewDidLoad()
+        interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
         
         // then
         XCTAssertEqual(presenter.numberOfRows(sectionNumber), 3)
-    }
-    
-    func test_empty() {
-        interactor.fakeFlag = true
-        
-        presenter.viewDidLoad()
-        
-        XCTAssertEqual(presenter.getVideosCount(), 0)
     }
 }
