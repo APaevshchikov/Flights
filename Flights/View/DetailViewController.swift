@@ -22,8 +22,6 @@ class DetailViewController: UIViewController {
         backgroundView.backgroundColor = .systemBackground
         view = backgroundView
         
-        view.backgroundColor = .systemBackground
-        
         view.addSubview(button)
         image = UIImage(systemName: "video")!
         button.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
