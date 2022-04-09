@@ -9,4 +9,5 @@ protocol ViewOutput: AnyObject {
     func getVideosCount() -> Int
     func getSection(_ indexPath: IndexPath) -> VideoModel
     func titleForHeaderInSection (_ section: Int) -> String
+    func getNavigationBarTitle() -> String
 }

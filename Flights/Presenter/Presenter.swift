@@ -8,41 +8,53 @@
 import Foundation
 import UIKit
 
+enum Content {
+    case tableView
+    case loadingView
+}
+
 final class Presenter: ViewOutput {
-    private var videos: [VideoModel] = []
-    
-    weak var view: ViewInput!
+    unowned var view: ViewInput!
     var interactor: InteractorInput!
     
+    private var videosResponse: [VideoModel] = []
+    
     func viewDidLoad() {
+        view.setupView(with: .loadingView)
         interactor.getVideos()
     }
     
     func numberOfRows(_ section: Int) -> Int {
-        let section = videos[section]
+        let section = videosResponse[section]
         return section.videos.count
     }
     
     func getVideosCount() -> Int {
-        videos.count
+        return videosResponse.count
     }
     
     func getSection(_ indexPath: IndexPath) -> VideoModel {
-        videos[indexPath.section]
+        return videosResponse[indexPath.section]
     }
     
     func titleForHeaderInSection (_ section: Int) -> String {
-        videos[section].sectionName
+        return videosResponse[section].sectionName
+    }
+    
+    func getNavigationBarTitle() -> String {
+        return "Flights"
     }
 }
 
 extension Presenter: InteractorOutput {
     func getVideosSuccess(videos: [VideoModel]) {
-        self.videos = videos
+        self.videosResponse = videos
+        view.setupView(with: .tableView)
         view.reloadData()
     }
     
     func getVideosFail(error: MyCustomError) {
-        videos = []
+        view.setupView(with: .loadingView)
+        videosResponse = []
     }
 }

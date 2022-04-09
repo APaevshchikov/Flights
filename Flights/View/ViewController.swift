@@ -1,15 +1,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let tableView = UITableView()
     var output: ViewOutput!
+    
+    private let tableView = UITableView()
+    private let loadintView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Videos or Flights"
-        configureTableView()
-        
+        title = output.getNavigationBarTitle()
         output.viewDidLoad()
     }
     
@@ -21,6 +21,14 @@ class ViewController: UIViewController {
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         tableView.pin(to: view)
+    }
+    
+    private func configureLoadingView() {
+        view.addSubview(loadintView)
+        loadintView.frame.size.width = view.frame.size.width / 4
+        loadintView.frame.size.height = view.frame.size.height / 4
+        loadintView.center = view.center
+        loadintView.backgroundColor = .red
     }
 }
 
@@ -71,5 +79,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: ViewInput {
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    func setupView(with content: Content) {
+        switch content {
+        case .tableView:
+            if !view.subviews.contains(where: { $0 == tableView }) {
+                configureTableView()
+            }
+            loadintView.removeFromSuperview()
+        case .loadingView:
+            if !view.subviews.contains(where: { $0 == loadintView }) {
+                configureLoadingView()
+            }
+            tableView.removeFromSuperview()
+        }
     }
 }
