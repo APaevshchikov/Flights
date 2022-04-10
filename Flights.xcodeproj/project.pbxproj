@@ -17,8 +17,6 @@
 		A02EF14A27E543BA006587F9 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14927E543BA006587F9 /* Interactor.swift */; };
 		A03DEE5627FB8FC80042755F /* ViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DEE5527FB8FC80042755F /* ViewOutput.swift */; };
 		A03DEE5827FB8FEA0042755F /* ViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DEE5727FB8FEA0042755F /* ViewInput.swift */; };
-		A03DEE5B27FB93100042755F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DEE5A27FB93100042755F /* CustomError.swift */; };
-		A03DEE5D27FB98450042755F /* DataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DEE5C27FB98450042755F /* DataSourceManager.swift */; };
 		A044AA4D27D9684800A78419 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AA4C27D9684800A78419 /* Presenter.swift */; };
 		A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */; };
 		A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; };
@@ -32,7 +30,6 @@
 		A0D0B76027D6683E0049343F /* FlightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B75F27D6683E0049343F /* FlightsUITests.swift */; };
 		A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B76F27D7B8580049343F /* UIView + Extension.swift */; };
 		A0D0B77227D7BBB10049343F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B77127D7BBB10049343F /* TableViewCell.swift */; };
-		A0D0B77427D7C7430049343F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B77327D7C7430049343F /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +74,6 @@
 		A02EF14927E543BA006587F9 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		A03DEE5527FB8FC80042755F /* ViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOutput.swift; sourceTree = "<group>"; };
 		A03DEE5727FB8FEA0042755F /* ViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInput.swift; sourceTree = "<group>"; };
-		A03DEE5A27FB93100042755F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		A03DEE5C27FB98450042755F /* DataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceManager.swift; sourceTree = "<group>"; };
 		A044AA4C27D9684800A78419 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A0D0B73A27D6683D0049343F /* Flights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flights.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +91,6 @@
 		A0D0B76127D6683E0049343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D0B76F27D7B8580049343F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		A0D0B77127D7BBB10049343F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		A0D0B77327D7C7430049343F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +138,39 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		A02C724228032063000C5A00 /* App-Scene Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A0D0B73D27D6683D0049343F /* AppDelegate.swift */,
+				A0D0B73F27D6683D0049343F /* SceneDelegate.swift */,
+			);
+			path = "App-Scene Delegates";
+			sourceTree = "<group>";
+		};
+		A02C7243280320D5000C5A00 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0D0B76F27D7B8580049343F /* UIView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A02C7244280320EC000C5A00 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A0D0B77127D7BBB10049343F /* TableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A02C7245280320F4000C5A00 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		A02EF14C27E543DE006587F9 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +184,8 @@
 		A03DEE5427FB8FB20042755F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */,
+				A02C7244280320EC000C5A00 /* Cell */,
+				A02C7245280320F4000C5A00 /* DetailView */,
 				A0D0B74127D6683D0049343F /* ViewController.swift */,
 				A03DEE5527FB8FC80042755F /* ViewOutput.swift */,
 				A03DEE5727FB8FEA0042755F /* ViewInput.swift */,
@@ -196,21 +224,16 @@
 		A0D0B73C27D6683D0049343F /* Flights */ = {
 			isa = PBXGroup;
 			children = (
+				A02C724228032063000C5A00 /* App-Scene Delegates */,
 				A02C723D28031133000C5A00 /* DTO */,
 				A01A81B4280239800066C733 /* Network */,
-				A0D0B73D27D6683D0049343F /* AppDelegate.swift */,
-				A0D0B73F27D6683D0049343F /* SceneDelegate.swift */,
 				A03DEE5427FB8FB20042755F /* View */,
 				A03DEE5927FB908F0042755F /* Presenter */,
 				A02EF14C27E543DE006587F9 /* Interactor */,
+				A02C7243280320D5000C5A00 /* Extensions */,
 				A0D0B74627D6683D0049343F /* Assets.xcassets */,
 				A0D0B74827D6683D0049343F /* LaunchScreen.storyboard */,
 				A0D0B74B27D6683D0049343F /* Info.plist */,
-				A0D0B76F27D7B8580049343F /* UIView + Extension.swift */,
-				A0D0B77127D7BBB10049343F /* TableViewCell.swift */,
-				A0D0B77327D7C7430049343F /* Model.swift */,
-				A03DEE5A27FB93100042755F /* CustomError.swift */,
-				A03DEE5C27FB98450042755F /* DataSourceManager.swift */,
 			);
 			path = Flights;
 			sourceTree = "<group>";
@@ -376,19 +399,16 @@
 				A03DEE5827FB8FEA0042755F /* ViewInput.swift in Sources */,
 				A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */,
 				A02EF14627E54364006587F9 /* InteractorInput.swift in Sources */,
-				A03DEE5B27FB93100042755F /* CustomError.swift in Sources */,
 				A02C723C28030B30000C5A00 /* URLBuilder.swift in Sources */,
 				A02C723F28031144000C5A00 /* HeroDTO.swift in Sources */,
 				A01A81C028023ECC0066C733 /* NetworkService.swift in Sources */,
 				A0D0B74227D6683D0049343F /* ViewController.swift in Sources */,
-				A0D0B77427D7C7430049343F /* Model.swift in Sources */,
 				A02EF14827E54382006587F9 /* InteractorOutput.swift in Sources */,
 				A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */,
 				A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */,
 				A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */,
 				A01A81B828023A300066C733 /* RequestManager.swift in Sources */,
 				A01A81BA28023C980066C733 /* NetworkRequest.swift in Sources */,
-				A03DEE5D27FB98450042755F /* DataSourceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

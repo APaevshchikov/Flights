@@ -11,23 +11,6 @@ class Interactor {
     init(networkService: NetworkServiceable) {
         self.networkService = networkService
     }
-    
-    private func setupVideos(
-        success: @escaping ([VideoModel]) -> Void,
-        fail: @escaping (MyCustomError) -> Void
-    ) {
-        DispatchQueue.global(qos: .utility).async {
-            if let results = DataSourceManager.videoModels() {
-                DispatchQueue.main.async {
-                    success(results)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    fail(.dontCare)
-                }
-            }
-        }
-    }
 }
 
 extension Interactor: InteractorInput {

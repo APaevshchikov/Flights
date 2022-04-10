@@ -13,7 +13,6 @@ protocol NetworkServiceable {
 
 final class NetworkService {
     let requestManager: Requestable = RequestManager()
-    let networkService: NetworkServiceable = NetworkService()
 }
 
 extension NetworkService: NetworkServiceable {
