@@ -26,6 +26,10 @@ class TableViewCell: UITableViewCell {
         titleLabel.text = title
     }
     
+    func set(imageData: Data) {
+        image.image = UIImage(data: imageData)
+    }
+    
     private func configureImageView() {
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
