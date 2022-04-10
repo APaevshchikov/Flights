@@ -30,6 +30,14 @@ class TableViewCell: UITableViewCell {
         image.image = UIImage(data: imageData)
     }
     
+    func setImagePlaceholder(name: String) {
+        if let assetsImage = UIImage(named: name) {
+            image.image = assetsImage
+        } else if let sfSymbolsImage = UIImage(systemName: name) {
+            image.image = sfSymbolsImage
+        }
+    }
+    
     private func configureImageView() {
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
@@ -47,7 +55,8 @@ class TableViewCell: UITableViewCell {
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 16 / 9)
+            image.heightAnchor.constraint(equalToConstant: 44),
+            image.widthAnchor.constraint(equalTo: image.heightAnchor)
         ])
     }
     
@@ -55,8 +64,8 @@ class TableViewCell: UITableViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -8),
-            titleLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: image.trailingAnchor, constant: 8),
             titleLabel.topAnchor.constraint(equalTo: image.topAnchor)
         ])
         

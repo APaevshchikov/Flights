@@ -9,7 +9,7 @@ import UIKit
 import Hero
 
 class DetailViewController: UIViewController {
-    var objectTitle: String!
+//    var objectTitle: String!
     
     private let objectTitleLabel = UILabel()
     private var image = UIImage()
@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         
         view.addSubview(objectTitleLabel)
         objectTitleLabel.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
-        objectTitleLabel.text = objectTitle
+//        objectTitleLabel.text = objectTitle
         objectTitleLabel.center = view.center
         objectTitleLabel.font.withSize(CGFloat(15))
     }

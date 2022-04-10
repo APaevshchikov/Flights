@@ -5,6 +5,7 @@ class ViewController: UIViewController {
     
     private let tableView = UITableView()
     private let loadintView = UIView()
+    private var cell = TableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         tableView.pin(to: view)
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.getNumberOfRows()
     }
@@ -40,15 +42,26 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let object = output.getObject(indexPath)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier) as! TableViewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier) as! TableViewCell
         cell.set(title: object.name)
         
         return cell
     }
-    
+}
+
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
         navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            output.prefetchRowAt(indexPath)
+        }
     }
 }
 
@@ -70,5 +83,13 @@ extension ViewController: ViewInput {
             }
             tableView.removeFromSuperview()
         }
+    }
+    
+    func setImageData(_ imageData: Data) {
+        cell.set(imageData: imageData)
+    }
+    
+    func setImagePlaceholder(name: String) {
+        cell.setImagePlaceholder(name: name)
     }
 }

@@ -6,18 +6,29 @@
 //
 
 import Combine
+import Foundation
 
 protocol NetworkServiceable {
     func getAllHeroes() -> AnyPublisher<[HeroDTO], NetworkError>
+    func getHeroImage(for hero: HeroDTO) -> AnyPublisher<Data, NetworkError>
 }
 
 final class NetworkService {
-    let requestManager: Requestable = RequestManager()
+    private let requestManager: Requestable = RequestManager()
+    private let urlBuilder: URLBuilder = URLBuilder()
 }
 
 extension NetworkService: NetworkServiceable {
     func getAllHeroes() -> AnyPublisher<[HeroDTO], NetworkError> {
-        let url = URLBuilder().buildURL(path: "all")
+        let url = urlBuilder.buildURL(path: "all")
+        let request: NetworkRequest = NetworkRequest(url: url)
+        
+        return requestManager.makeRequest(request)
+            .eraseToAnyPublisher()
+    }
+    
+    func getHeroImage(for hero: HeroDTO) -> AnyPublisher<Data, NetworkError> {
+        let url = URL(string: hero.image.xs)
         let request: NetworkRequest = NetworkRequest(url: url)
         
         return requestManager.makeRequest(request)

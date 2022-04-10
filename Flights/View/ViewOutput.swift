@@ -8,4 +8,5 @@ protocol ViewOutput: AnyObject {
     func getNumberOfRows() -> Int
     func getObject(_ indexPath: IndexPath) -> HeroDTO
     func getNavigationBarTitle() -> String
+    func prefetchRowAt(_ indexPath: IndexPath)
 }

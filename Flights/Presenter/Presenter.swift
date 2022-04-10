@@ -34,9 +34,22 @@ final class Presenter: ViewOutput {
     func getNavigationBarTitle() -> String {
         return "Flights"
     }
+    
+    func prefetchRowAt(_ indexPath: IndexPath) {
+        let hero = heroesResponse[indexPath.row]
+        interactor.getHeroImage(for: hero)
+    }
 }
 
 extension Presenter: InteractorOutput {
+    func getHeroImageSuccess(imageData: Data) {
+        view.setImageData(imageData)
+    }
+    
+    func getHeroImageFail(error: NetworkError) {
+        view.setImagePlaceholder(name: "person.fill.xmark")
+    }
+    
     func getAllHeroesSuccess(heroes: [HeroDTO]) {
         heroesResponse = heroes
         view.setupView(with: .tableView)

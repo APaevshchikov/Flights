@@ -4,4 +4,5 @@ protocol InteractorInput: AnyObject {
     var output: InteractorOutput? { get set }
     
     func getAllHeroes()
+    func getHeroImage(for hero: HeroDTO)
 }
