@@ -28,7 +28,6 @@ extension Interactor: InteractorInput {
                     }
                 },
                 receiveValue: { [weak output] model in
-                    print(model)
                     output?.getAllHeroesSuccess(heroes: model)
                 }
             )
