@@ -1,5 +1,5 @@
 //
-//  NativeRequestable.swift
+//  RequestManager.swift
 //  Flights
 //
 //  Created by Ars Paev on 10.04.2022.
@@ -9,13 +9,13 @@ import Combine
 import Foundation
 
 public protocol Requestable {
-    func request<T: Codable>(_ request: NetworkRequest) -> AnyPublisher<T, NetworkError>
+    func makeRequest<T: Codable>(_ request: NetworkRequest) -> AnyPublisher<T, NetworkError>
 }
 
-public class NativeRequestable: Requestable {
-    public func request<T: Codable>(_ request: NetworkRequest) -> AnyPublisher<T, NetworkError> {
+public class RequestManager: Requestable {
+    public func makeRequest<T: Codable>(_ request: NetworkRequest) -> AnyPublisher<T, NetworkError> {
         guard
-            let url = URL(string: request.url)
+            let url = request.url
         else {
             return AnyPublisher(
                 Fail<T, NetworkError>(error: NetworkError.badURL)

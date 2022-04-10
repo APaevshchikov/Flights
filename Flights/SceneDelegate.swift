@@ -12,7 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let view: ViewInput = ViewController()
         let presenter = Presenter()
-        let interactor: InteractorInput = Interactor()
+        let networkService: NetworkServiceable = NetworkService()
+        let interactor: InteractorInput = Interactor(networkService: networkService)
         view.output = presenter
         presenter.view = view
         presenter.interactor = interactor

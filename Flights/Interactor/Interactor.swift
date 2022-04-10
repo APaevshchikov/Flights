@@ -4,7 +4,13 @@ import Combine
 class Interactor {
     weak var output: InteractorOutput?
     
+    let networkService: NetworkServiceable
+    
     private var cancellable = Set<AnyCancellable>()
+    
+    init(networkService: NetworkServiceable) {
+        self.networkService = networkService
+    }
     
     private func setupVideos(
         success: @escaping ([VideoModel]) -> Void,
@@ -26,9 +32,7 @@ class Interactor {
 
 extension Interactor: InteractorInput {
     func getAllHeroes() {
-        let request: Requestable = NativeRequestable()
-        let service: PurchaseServiceable = PurchaseService(networkRequest: request, environment: .baseHeroUrl)
-        service.getAllHeroes()
+        networkService.getAllHeroes()
             .subscribe(on: DispatchQueue.global(qos: .utility))
             .receive(on: DispatchQueue.main)
             .sink(

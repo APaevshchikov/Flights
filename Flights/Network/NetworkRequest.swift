@@ -8,45 +8,45 @@
 import Foundation
 
 public struct NetworkRequest {
-    let url: String
+    let url: URL?
     let headers: [String: String]?
     let body: Data?
-    let requestTimeOut: Float?
     let httpMethod: HTTPMethod
     
     public init(
-        url: String,
+        url: URL?,
         headers: [String: String]? = nil,
         requestBody: Encodable? = nil,
-        requestTimeout: Float? = nil,
-        httpMethod: HTTPMethod
+        httpMethod: HTTPMethod = .GET
     ) {
         self.url = url
         self.headers = headers
         self.body = requestBody?.encode()
-        self.requestTimeOut = requestTimeout
         self.httpMethod = httpMethod
     }
     
     public init(
-        url: String,
+        url: URL?,
         headers: [String: String]? = nil,
         requestBody: Data? = nil,
-        requestTimeout: Float? = nil,
-        httpMethod: HTTPMethod
+        httpMethod: HTTPMethod = .GET
     ) {
         self.url = url
         self.headers = headers
         self.body = requestBody
-        self.requestTimeOut = requestTimeout
         self.httpMethod = httpMethod
     }
     
-    func buildURLRequest(with url: URL) -> URLRequest {
+    func buildURLRequest(
+        with url: URL,
+        httpMethod: HTTPMethod = .GET,
+        headers: [String: String] = [:],
+        httpBody: Data? = nil
+    ) -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
-        urlRequest.allHTTPHeaderFields = headers ?? [:]
-        urlRequest.httpBody = body
+        urlRequest.allHTTPHeaderFields = headers
+        urlRequest.httpBody = httpBody
 
         return urlRequest
     }
