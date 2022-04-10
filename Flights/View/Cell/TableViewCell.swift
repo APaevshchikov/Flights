@@ -8,8 +8,8 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(image)
-        addSubview(titleLabel)
+        contentView.addSubview(image)
+        contentView.addSubview(titleLabel)
         
         configureImageView()
         configureTitleLabel()
@@ -38,18 +38,23 @@ class TableViewCell: UITableViewCell {
     private func setImageConstraints() {
         image.translatesAutoresizingMaskIntoConstraints = false
         
-        image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        image.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        image.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        
-        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 16 / 9).isActive = true
+        NSLayoutConstraint.activate([
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
+            image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 16 / 9)
+        ])
     }
     
     private func setTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -8),
+            titleLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: image.topAnchor)
+        ])
+        
     }
 }
