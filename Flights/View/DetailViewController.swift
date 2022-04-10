@@ -9,9 +9,12 @@ import UIKit
 import Hero
 
 class DetailViewController: UIViewController {
-    let button = UIButton()
-    var image = UIImage()
-
+    var objectTitle: String!
+    
+    private let objectTitleLabel = UILabel()
+    private let button = UIButton()
+    private var image = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +31,11 @@ class DetailViewController: UIViewController {
         button.backgroundColor = .systemPink
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
+        view.addSubview(objectTitleLabel)
+        objectTitleLabel.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
+        objectTitleLabel.text = objectTitle
+        objectTitleLabel.center = view.center
     }
     
     @objc private func buttonAction() {

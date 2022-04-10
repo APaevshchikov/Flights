@@ -28,7 +28,7 @@ class FlightsTests: XCTestCase {
 
     func testExample() throws {
         interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
-        XCTAssertNotEqual(presenter.getVideosCount(), 0)
+        XCTAssertNotEqual(presenter.getObjectsCount(), 0)
     }
     
     func test_setVideos() throws {
@@ -39,6 +39,6 @@ class FlightsTests: XCTestCase {
         interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
         
         // then
-        XCTAssertEqual(presenter.numberOfRows(sectionNumber), 3)
+        XCTAssertEqual(presenter.getNumberOfRows(sectionNumber), 3)
     }
 }

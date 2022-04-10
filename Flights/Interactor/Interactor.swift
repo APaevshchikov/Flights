@@ -22,7 +22,9 @@ class Interactor {
             }
         }
     }
-    
+}
+
+extension Interactor: InteractorInput {
     func getAllHeroes() {
         let request: Requestable = NativeRequestable()
         let service: PurchaseServiceable = PurchaseService(networkRequest: request, environment: .baseHeroUrl)
@@ -44,18 +46,5 @@ class Interactor {
                 }
             )
             .store(in: &cancellable)
-    }
-}
-
-extension Interactor: InteractorInput {
-    func getVideos() {
-        setupVideos(
-            success: { [weak output] videos in
-                output?.getVideosSuccess(videos: videos)
-            },
-            fail: { [weak output] error in
-                output?.getVideosFail(error: error)
-            }
-        )
     }
 }

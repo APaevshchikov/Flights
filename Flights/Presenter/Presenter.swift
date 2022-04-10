@@ -16,29 +16,19 @@ final class Presenter: ViewOutput {
     unowned var view: ViewInput!
     var interactor: InteractorInput!
     
-    private var videosResponse: [VideoModel] = []
+    private var heroesResponse: [HeroDTO] = []
     
     func viewDidLoad() {
         view.setupView(with: .loadingView)
-        interactor.getVideos()
         interactor.getAllHeroes()
     }
     
-    func numberOfRows(_ section: Int) -> Int {
-        let section = videosResponse[section]
-        return section.videos.count
+    func getNumberOfRows() -> Int {
+        return heroesResponse.count
     }
     
-    func getVideosCount() -> Int {
-        return videosResponse.count
-    }
-    
-    func getSection(_ indexPath: IndexPath) -> VideoModel {
-        return videosResponse[indexPath.section]
-    }
-    
-    func titleForHeaderInSection (_ section: Int) -> String {
-        return videosResponse[section].sectionName
+    func getObject(_ indexPath: IndexPath) -> HeroDTO {
+        return heroesResponse[indexPath.row]
     }
     
     func getNavigationBarTitle() -> String {
@@ -48,21 +38,13 @@ final class Presenter: ViewOutput {
 
 extension Presenter: InteractorOutput {
     func getAllHeroesSuccess(heroes: [HeroDTO]) {
-        
-    }
-    
-    func getAllHeroesFail(error: NetworkError) {
-        
-    }
-    
-    func getVideosSuccess(videos: [VideoModel]) {
-        self.videosResponse = videos
+        heroesResponse = heroes
         view.setupView(with: .tableView)
         view.reloadData()
     }
     
-    func getVideosFail(error: MyCustomError) {
+    func getAllHeroesFail(error: NetworkError) {
         view.setupView(with: .loadingView)
-        videosResponse = []
+        heroesResponse = []
     }
 }

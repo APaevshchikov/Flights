@@ -2,14 +2,14 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    private var videoImageView = UIImageView()
-    private var videoTitleLabel = UILabel()
+    private var image = UIImageView()
+    private var titleLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(videoImageView)
-        addSubview(videoTitleLabel)
+        addSubview(image)
+        addSubview(titleLabel)
         
         configureImageView()
         configureTitleLabel()
@@ -22,38 +22,38 @@ class TableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(video: Video) {
-        videoTitleLabel.text = video.title
-        videoImageView.image = video.image
+    func set(title: String) {
+        titleLabel.text = title
+//        image.image = video.image
     }
     
     private func configureImageView() {
-        videoImageView.layer.cornerRadius = 10
-        videoImageView.clipsToBounds = true
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
     }
     
     private func configureTitleLabel() {
-        videoTitleLabel.numberOfLines = 0
+        titleLabel.numberOfLines = 0
     }
     
     private func setImageConstraints() {
-        videoImageView.translatesAutoresizingMaskIntoConstraints = false
+        image.translatesAutoresizingMaskIntoConstraints = false
         
-//        videoImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        image.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        videoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        videoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        videoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        image.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        image.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
         
-        videoImageView.widthAnchor.constraint(equalTo: videoImageView.heightAnchor, multiplier: 16 / 9).isActive = true
-//        videoImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 16 / 9).isActive = true
+//        image.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     private func setTitleLabelConstraints() {
-        videoTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        videoTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        videoTitleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        videoTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
