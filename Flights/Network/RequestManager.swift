@@ -10,6 +10,7 @@ import Foundation
 
 public protocol Requestable {
     func makeRequest<T: Codable>(_ request: NetworkRequest) -> AnyPublisher<T, NetworkError>
+    func makeImageRequest(_ request: NetworkRequest) -> AnyPublisher<Data, NetworkError>
 }
 
 public class RequestManager: Requestable {
@@ -35,6 +36,32 @@ public class RequestManager: Requestable {
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error in
                 NetworkError.invalidJSON
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    public func makeImageRequest(_ request: NetworkRequest) -> AnyPublisher<Data, NetworkError> {
+        guard
+            let url = request.url
+        else {
+            return AnyPublisher(
+                Fail<Data, NetworkError>(error: NetworkError.badURL)
+            )
+        }
+        
+        return URLSession.shared
+            .dataTaskPublisher(for: request.buildURLRequest(with: url))
+            .tryMap { output in
+                guard
+                    output.response is HTTPURLResponse
+                else {
+                    throw NetworkError.serverError
+                }
+                return output.data
+            }
+            .mapError { error in
+                NetworkError.unableToParseData
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

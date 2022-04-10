@@ -28,10 +28,10 @@ extension NetworkService: NetworkServiceable {
     }
     
     func getHeroImage(for hero: HeroDTO) -> AnyPublisher<Data, NetworkError> {
-        let url = URL(string: hero.image.xs)
+        let url = URL(string: hero.image.lg)
         let request: NetworkRequest = NetworkRequest(url: url)
         
-        return requestManager.makeRequest(request)
+        return requestManager.makeImageRequest(request)
             .eraseToAnyPublisher()
     }
 }
