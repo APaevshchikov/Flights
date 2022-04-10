@@ -5,11 +5,13 @@ class FlightsTests: XCTestCase {
     var interactor: InteractorInput!
     var presenter: Presenter!
     var view: ViewInput!
+    var networkService: NetworkService!
 
     override func setUp() {
         super.setUp()
         
-        interactor = Interactor()
+        networkService = NetworkService()
+        interactor = Interactor(networkService: networkService)
         presenter = Presenter()
         view = ViewController()
         view.output = presenter
@@ -19,6 +21,7 @@ class FlightsTests: XCTestCase {
     }
 
     override func tearDown() {
+        networkService = nil
         interactor = nil
         presenter = nil
         view = nil
@@ -26,19 +29,14 @@ class FlightsTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() throws {
-        interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
-        XCTAssertNotEqual(presenter.getObjectsCount(), 0)
+    func test_setHeroesListIsNotEmpryIfSuccess() throws {
+        interactor.output?.getAllHeroesSuccess(heroes: [HeroDTO(id: 1, name: "")])
+        XCTAssertNotEqual(presenter.getNumberOfRows(), 0)
+        XCTAssertEqual(presenter.getNumberOfRows(), 1)
     }
     
-    func test_setVideos() throws {
-        // given
-        let sectionNumber = 0
-        
-        // when
-        interactor.output?.getVideosSuccess(videos: DataSourceManager.videoModels()!)
-        
-        // then
-        XCTAssertEqual(presenter.getNumberOfRows(sectionNumber), 3)
+    func test_setHeroesListIsEmpryIfFail() throws {
+        interactor.output?.getAllHeroesFail(error: .apiError)
+        XCTAssertEqual(presenter.getNumberOfRows(), 0)
     }
 }
