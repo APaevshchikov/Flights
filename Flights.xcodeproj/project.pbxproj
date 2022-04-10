@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01A81B828023A300066C733 /* NativeRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A81B728023A300066C733 /* NativeRequestable.swift */; };
+		A01A81BA28023C980066C733 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A81B928023C980066C733 /* NetworkRequest.swift */; };
+		A01A81BC28023DFB0066C733 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A81BB28023DFB0066C733 /* Endpoints.swift */; };
+		A01A81BE28023EAD0066C733 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A81BD28023EAD0066C733 /* Environment.swift */; };
+		A01A81C028023ECC0066C733 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A81BF28023ECC0066C733 /* Service.swift */; };
 		A02EF14627E54364006587F9 /* InteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14527E54364006587F9 /* InteractorInput.swift */; };
 		A02EF14827E54382006587F9 /* InteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14727E54382006587F9 /* InteractorOutput.swift */; };
 		A02EF14A27E543BA006587F9 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EF14927E543BA006587F9 /* Interactor.swift */; };
@@ -62,6 +67,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A01A81B728023A300066C733 /* NativeRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequestable.swift; sourceTree = "<group>"; };
+		A01A81B928023C980066C733 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		A01A81BB28023DFB0066C733 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		A01A81BD28023EAD0066C733 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A01A81BF28023ECC0066C733 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A02EF14527E54364006587F9 /* InteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInput.swift; sourceTree = "<group>"; };
 		A02EF14727E54382006587F9 /* InteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorOutput.swift; sourceTree = "<group>"; };
 		A02EF14927E543BA006587F9 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
@@ -115,6 +125,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A01A81B4280239800066C733 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A01A81B728023A300066C733 /* NativeRequestable.swift */,
+				A01A81B928023C980066C733 /* NetworkRequest.swift */,
+				A01A81BB28023DFB0066C733 /* Endpoints.swift */,
+				A01A81BD28023EAD0066C733 /* Environment.swift */,
+				A01A81BF28023ECC0066C733 /* Service.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		A02EF14C27E543DE006587F9 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +189,7 @@
 		A0D0B73C27D6683D0049343F /* Flights */ = {
 			isa = PBXGroup;
 			children = (
+				A01A81B4280239800066C733 /* Network */,
 				A0D0B73D27D6683D0049343F /* AppDelegate.swift */,
 				A0D0B73F27D6683D0049343F /* SceneDelegate.swift */,
 				A03DEE5427FB8FB20042755F /* View */,
@@ -346,12 +369,17 @@
 				A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */,
 				A02EF14627E54364006587F9 /* InteractorInput.swift in Sources */,
 				A03DEE5B27FB93100042755F /* CustomError.swift in Sources */,
+				A01A81C028023ECC0066C733 /* Service.swift in Sources */,
 				A0D0B74227D6683D0049343F /* ViewController.swift in Sources */,
+				A01A81BE28023EAD0066C733 /* Environment.swift in Sources */,
 				A0D0B77427D7C7430049343F /* Model.swift in Sources */,
 				A02EF14827E54382006587F9 /* InteractorOutput.swift in Sources */,
 				A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */,
 				A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */,
+				A01A81BC28023DFB0066C733 /* Endpoints.swift in Sources */,
 				A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */,
+				A01A81B828023A300066C733 /* NativeRequestable.swift in Sources */,
+				A01A81BA28023C980066C733 /* NetworkRequest.swift in Sources */,
 				A03DEE5D27FB98450042755F /* DataSourceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,7 @@ final class Presenter: ViewOutput {
     func viewDidLoad() {
         view.setupView(with: .loadingView)
         interactor.getVideos()
+        interactor.getAllHeroes()
     }
     
     func numberOfRows(_ section: Int) -> Int {
@@ -46,6 +47,14 @@ final class Presenter: ViewOutput {
 }
 
 extension Presenter: InteractorOutput {
+    func getAllHeroesSuccess(heroes: [HeroDTO]) {
+        
+    }
+    
+    func getAllHeroesFail(error: NetworkError) {
+        
+    }
+    
     func getVideosSuccess(videos: [VideoModel]) {
         self.videosResponse = videos
         view.setupView(with: .tableView)
