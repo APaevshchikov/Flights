@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,8 +22,6 @@
 		A056B74F28073CEE000F666F /* GetAllHeroesRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B74E28073CEE000F666F /* GetAllHeroesRemoteStorage.swift */; };
 		A056B75128073CF6000F666F /* GetAllHeroesLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B75028073CF6000F666F /* GetAllHeroesLocalStorage.swift */; };
 		A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */; };
-		A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; };
-		A08F4BAD27DCC1A700D72A97 /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B73D27D6683D0049343F /* AppDelegate.swift */; };
 		A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B73F27D6683D0049343F /* SceneDelegate.swift */; };
 		A0D0B74227D6683D0049343F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B74127D6683D0049343F /* ViewController.swift */; };
@@ -51,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A08F4BAD27DCC1A700D72A97 /* Hero in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +298,6 @@
 			);
 			name = Flights;
 			packageProductDependencies = (
-				A08F4BAB27DCC1A700D72A97 /* Hero */,
 			);
 			productName = Flights;
 			productReference = A0D0B73A27D6683D0049343F /* Flights.app */;
@@ -354,7 +349,6 @@
 			);
 			mainGroup = A0D0B73127D6683C0049343F;
 			packageReferences = (
-				A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = A0D0B73B27D6683D0049343F /* Products */;
 			projectDirPath = "";
@@ -672,25 +666,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A08F4BAB27DCC1A700D72A97 /* Hero */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A08F4BAA27DCC1A700D72A97 /* XCRemoteSwiftPackageReference "Hero" */;
-			productName = Hero;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0D0B73227D6683C0049343F /* Project object */;
 }
