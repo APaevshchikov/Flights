@@ -30,20 +30,12 @@
 		A0D0B74727D6683D0049343F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D0B74627D6683D0049343F /* Assets.xcassets */; };
 		A0D0B74A27D6683D0049343F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D0B74827D6683D0049343F /* LaunchScreen.storyboard */; };
 		A0D0B75527D6683E0049343F /* FlightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B75427D6683E0049343F /* FlightsTests.swift */; };
-		A0D0B76027D6683E0049343F /* FlightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B75F27D6683E0049343F /* FlightsUITests.swift */; };
 		A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B76F27D7B8580049343F /* UIView + Extension.swift */; };
 		A0D0B77227D7BBB10049343F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B77127D7BBB10049343F /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		A0D0B75127D6683E0049343F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A0D0B73227D6683C0049343F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A0D0B73927D6683C0049343F;
-			remoteInfo = Flights;
-		};
-		A0D0B75C27D6683E0049343F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A0D0B73227D6683C0049343F /* Project object */;
 			proxyType = 1;
@@ -92,9 +84,6 @@
 		A0D0B75027D6683E0049343F /* FlightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D0B75427D6683E0049343F /* FlightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTests.swift; sourceTree = "<group>"; };
 		A0D0B75627D6683E0049343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0D0B75B27D6683E0049343F /* FlightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0D0B75F27D6683E0049343F /* FlightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsUITests.swift; sourceTree = "<group>"; };
-		A0D0B76127D6683E0049343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D0B76F27D7B8580049343F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		A0D0B77127D7BBB10049343F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,13 +98,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A0D0B74D27D6683E0049343F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0D0B75827D6683E0049343F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,7 +245,6 @@
 			children = (
 				A0D0B73C27D6683D0049343F /* Flights */,
 				A0D0B75327D6683E0049343F /* FlightsTests */,
-				A0D0B75E27D6683E0049343F /* FlightsUITests */,
 				A0D0B73B27D6683D0049343F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -273,7 +254,6 @@
 			children = (
 				A0D0B73A27D6683D0049343F /* Flights.app */,
 				A0D0B75027D6683E0049343F /* FlightsTests.xctest */,
-				A0D0B75B27D6683E0049343F /* FlightsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,15 +282,6 @@
 				A0D0B75627D6683E0049343F /* Info.plist */,
 			);
 			path = FlightsTests;
-			sourceTree = "<group>";
-		};
-		A0D0B75E27D6683E0049343F /* FlightsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A0D0B75F27D6683E0049343F /* FlightsUITests.swift */,
-				A0D0B76127D6683E0049343F /* Info.plist */,
-			);
-			path = FlightsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,24 +326,6 @@
 			productReference = A0D0B75027D6683E0049343F /* FlightsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A0D0B75A27D6683E0049343F /* FlightsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A0D0B76A27D6683E0049343F /* Build configuration list for PBXNativeTarget "FlightsUITests" */;
-			buildPhases = (
-				A0D0B75727D6683E0049343F /* Sources */,
-				A0D0B75827D6683E0049343F /* Frameworks */,
-				A0D0B75927D6683E0049343F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A0D0B75D27D6683E0049343F /* PBXTargetDependency */,
-			);
-			name = FlightsUITests;
-			productName = FlightsUITests;
-			productReference = A0D0B75B27D6683E0049343F /* FlightsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -386,10 +339,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					A0D0B74F27D6683E0049343F = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = A0D0B73927D6683C0049343F;
-					};
-					A0D0B75A27D6683E0049343F = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = A0D0B73927D6683C0049343F;
 					};
@@ -413,7 +362,6 @@
 			targets = (
 				A0D0B73927D6683C0049343F /* Flights */,
 				A0D0B74F27D6683E0049343F /* FlightsTests */,
-				A0D0B75A27D6683E0049343F /* FlightsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,13 +377,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A0D0B74E27D6683E0049343F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0D0B75927D6683E0049343F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,14 +421,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A0D0B75727D6683E0049343F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A0D0B76027D6683E0049343F /* FlightsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -495,11 +428,6 @@
 			isa = PBXTargetDependency;
 			target = A0D0B73927D6683C0049343F /* Flights */;
 			targetProxy = A0D0B75127D6683E0049343F /* PBXContainerItemProxy */;
-		};
-		A0D0B75D27D6683E0049343F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A0D0B73927D6683C0049343F /* Flights */;
-			targetProxy = A0D0B75C27D6683E0049343F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -713,46 +641,6 @@
 			};
 			name = Release;
 		};
-		A0D0B76B27D6683E0049343F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69QP446KVW;
-				INFOPLIST_FILE = FlightsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.ArsPaev.FlightsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Flights;
-			};
-			name = Debug;
-		};
-		A0D0B76C27D6683E0049343F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69QP446KVW;
-				INFOPLIST_FILE = FlightsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.ArsPaev.FlightsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Flights;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -779,15 +667,6 @@
 			buildConfigurations = (
 				A0D0B76827D6683E0049343F /* Debug */,
 				A0D0B76927D6683E0049343F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A0D0B76A27D6683E0049343F /* Build configuration list for PBXNativeTarget "FlightsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A0D0B76B27D6683E0049343F /* Debug */,
-				A0D0B76C27D6683E0049343F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
