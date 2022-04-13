@@ -32,6 +32,12 @@ struct HeroDTO: Codable {
     }
 }
 
+extension HeroDTO: Equatable {
+    static func == (lhs: HeroDTO, rhs: HeroDTO) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 struct HeroDTOImage: Codable {
     let xs: String
     let sm: String

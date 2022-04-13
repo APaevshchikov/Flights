@@ -12,24 +12,30 @@ enum Content {
     case loadingView
 }
 
-final class Presenter: ViewOutput {
-    unowned var view: ViewInput!
-    var interactor: InteractorInput!
-    var loadImageUseCase = LoadImageUseCase()
+final class Presenter {
+    weak var view: ViewInput!
     
-    private var heroesResponse: [HeroDTO] = []
-    
+    private var getAllHeroesUseCase = GetAllHeroesUseCase()
+    private var loadImageUseCase = LoadImageUseCase()
+    private var heroesList: [HeroDTO] = []
+}
+
+extension Presenter: ViewOutput {
     func viewDidLoad() {
         view.setupView(with: .loadingView)
-        interactor.getAllHeroes()
+        getAllHeroesUseCase.getAllHeroes { [weak self] heroes in
+            self?.heroesList = heroes
+            self?.view.setupView(with: .tableView)
+            self?.view.reloadData()
+        }
     }
     
     func getNumberOfRows() -> Int {
-        return heroesResponse.count
+        return heroesList.count
     }
     
     func getObject(_ indexPath: IndexPath) -> HeroDTO {
-        return heroesResponse[indexPath.row]
+        return heroesList[indexPath.row]
     }
     
     func getNavigationBarTitle() -> String {
@@ -37,30 +43,9 @@ final class Presenter: ViewOutput {
     }
     
     func prefetchRowAt(_ indexPath: IndexPath) {
-        let hero = heroesResponse[indexPath.row]
+        let hero = heroesList[indexPath.row]
         loadImageUseCase.loadImageFrom(urlString: hero.image.xs) { [weak view] imageData in
             view?.setImageData(imageData)
         }
-    }
-}
-
-extension Presenter: InteractorOutput {
-    func getHeroImageSuccess(imageData: Data) {
-        view.setImageData(imageData)
-    }
-    
-    func getHeroImageFail(error: NetworkError) {
-        view.setImagePlaceholder(name: "person.fill.xmark")
-    }
-    
-    func getAllHeroesSuccess(heroes: [HeroDTO]) {
-        heroesResponse = heroes
-        view.setupView(with: .tableView)
-        view.reloadData()
-    }
-    
-    func getAllHeroesFail(error: NetworkError) {
-        view.setupView(with: .loadingView)
-        heroesResponse = []
     }
 }

@@ -2,54 +2,35 @@ import XCTest
 @testable import Flights
 
 class FlightsTests: XCTestCase {
-    var interactor: InteractorInput!
     var presenter: Presenter!
     var view: ViewInput!
     var networkService: NetworkService!
     var loadImageUseCase: LoadImageUseCase!
+    var getAllHeroesUseCase: GetAllHeroesUseCase!
 
     override func setUp() {
         super.setUp()
         
+        getAllHeroesUseCase = GetAllHeroesUseCase()
         loadImageUseCase = LoadImageUseCase()
         networkService = NetworkService()
-        interactor = Interactor(networkService: networkService)
         presenter = Presenter()
         view = ViewController()
         view.output = presenter
         presenter.view = view
-        presenter.interactor = interactor
-        presenter.loadImageUseCase = loadImageUseCase
-        interactor.output = presenter
     }
 
     override func tearDown() {
+        getAllHeroesUseCase = nil
         loadImageUseCase = nil
         networkService = nil
-        interactor = nil
         presenter = nil
         view = nil
         
         super.tearDown()
     }
-
-    func test_setHeroesListIsNotEmpryIfSuccess() throws {
-        interactor.output?.getAllHeroesSuccess(
-            heroes: [
-                HeroDTO.mockHeroDTO
-            ]
-        )
-        
-        XCTAssertNotEqual(presenter.getNumberOfRows(), 0)
-        XCTAssertEqual(presenter.getNumberOfRows(), 1)
-    }
     
-    func test_setHeroesListIsEmpryIfFail() throws {
-        interactor.output?.getAllHeroesFail(error: .apiError)
-        XCTAssertEqual(presenter.getNumberOfRows(), 0)
-    }
-    
-    func test_load123() throws {
+    func test_loadImageUseCaseLoadImageFromUrlString() throws {
         let expectation = expectation(description: #function)
         var expectedValue = 2155
         
@@ -63,5 +44,18 @@ class FlightsTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
         
         XCTAssertEqual(expectedValue, 2155)
+    }
+    
+    func test_getAllHeroesUseCaseGetAllHeroes() throws {
+        let expectation = expectation(description: #function)
+        var expectedList: [HeroDTO] = []
+        
+        getAllHeroesUseCase.getAllHeroes { heroes in
+            expectation.fulfill()
+            expectedList = heroes
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        XCTAssertEqual(expectedList, [])
     }
 }
