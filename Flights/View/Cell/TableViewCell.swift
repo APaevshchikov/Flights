@@ -31,11 +31,7 @@ class TableViewCell: UITableViewCell {
     }
     
     func setImagePlaceholder(name: String) {
-        if let assetsImage = UIImage(named: name) {
-            image.image = assetsImage
-        } else if let sfSymbolsImage = UIImage(systemName: name) {
-            image.image = sfSymbolsImage
-        }
+        image.image = UIImage(systemName: name)
     }
     
     private func configureImageView() {

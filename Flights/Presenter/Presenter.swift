@@ -15,6 +15,7 @@ enum Content {
 final class Presenter: ViewOutput {
     unowned var view: ViewInput!
     var interactor: InteractorInput!
+    var loadImageUseCase = LoadImageUseCase()
     
     private var heroesResponse: [HeroDTO] = []
     
@@ -37,7 +38,9 @@ final class Presenter: ViewOutput {
     
     func prefetchRowAt(_ indexPath: IndexPath) {
         let hero = heroesResponse[indexPath.row]
-        interactor.getHeroImage(for: hero)
+        loadImageUseCase.loadImageFrom(urlString: hero.image.xs) { [weak view] imageData in
+            view?.setImageData(imageData)
+        }
     }
 }
 

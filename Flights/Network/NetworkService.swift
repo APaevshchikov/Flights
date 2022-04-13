@@ -10,7 +10,7 @@ import Foundation
 
 protocol NetworkServiceable {
     func getAllHeroes() -> AnyPublisher<[HeroDTO], NetworkError>
-    func getHeroImage(for hero: HeroDTO) -> AnyPublisher<Data, NetworkError>
+    func loadImageFrom(urlString: String) -> AnyPublisher<Data, NetworkError>
 }
 
 final class NetworkService {
@@ -27,8 +27,8 @@ extension NetworkService: NetworkServiceable {
             .eraseToAnyPublisher()
     }
     
-    func getHeroImage(for hero: HeroDTO) -> AnyPublisher<Data, NetworkError> {
-        let url = URL(string: hero.image.lg)
+    func loadImageFrom(urlString: String) -> AnyPublisher<Data, NetworkError> {
+        let url = URL(string: urlString)
         let request: NetworkRequest = NetworkRequest(url: url)
         
         return requestManager.makeImageRequest(request)

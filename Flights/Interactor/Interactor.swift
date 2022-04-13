@@ -3,7 +3,6 @@ import Combine
 
 class Interactor {
     weak var output: InteractorOutput?
-    
     let networkService: NetworkServiceable
     
     private var cancellable = Set<AnyCancellable>()
@@ -14,26 +13,6 @@ class Interactor {
 }
 
 extension Interactor: InteractorInput {
-    func getHeroImage(for hero: HeroDTO) {
-        networkService.getHeroImage(for: hero)
-            .subscribe(on: DispatchQueue.global(qos: .utility))
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { [weak output] in
-                    switch $0 {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        output?.getHeroImageFail(error: error)
-                    }
-                },
-                receiveValue: { [weak output] model in
-                    output?.getHeroImageSuccess(imageData: model)
-                }
-            )
-            .store(in: &cancellable)
-    }
-    
     func getAllHeroes() {
         networkService.getAllHeroes()
             .subscribe(on: DispatchQueue.global(qos: .utility))
