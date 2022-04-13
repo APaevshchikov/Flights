@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum Content {
     case tableView
@@ -18,16 +19,23 @@ final class Presenter {
     private var getAllHeroesUseCase = GetAllHeroesUseCase()
     private var loadImageUseCase = LoadImageUseCase()
     private var heroesList: [HeroDTO] = []
+    private var cancellables: Set<AnyCancellable> = []
 }
 
 extension Presenter: ViewOutput {
     func viewDidLoad() {
         view.setupView(with: .loadingView)
-        getAllHeroesUseCase.getAllHeroes { [weak self] heroes in
-            self?.heroesList = heroes
-            self?.view.setupView(with: .tableView)
-            self?.view.reloadData()
-        }
+        getAllHeroesUseCase.getAllHeroes(from: .remote)
+            .sink(
+                receiveCompletion: { [weak self] _ in
+                    self?.view.setupView(with: .tableView)
+                    self?.view.reloadData()
+                },
+                receiveValue: { [weak self] heroes in
+                    self?.heroesList = heroes
+                }
+            )
+            .store(in: &cancellables)
     }
     
     func getNumberOfRows() -> Int {

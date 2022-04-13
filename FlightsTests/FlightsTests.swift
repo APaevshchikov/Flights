@@ -1,31 +1,24 @@
 import XCTest
 @testable import Flights
 
+import Combine
+
 class FlightsTests: XCTestCase {
-    var presenter: Presenter!
-    var view: ViewInput!
-    var networkService: NetworkService!
     var loadImageUseCase: LoadImageUseCase!
     var getAllHeroesUseCase: GetAllHeroesUseCase!
+    
+    var cancellables: Set<AnyCancellable> = []
 
     override func setUp() {
         super.setUp()
         
         getAllHeroesUseCase = GetAllHeroesUseCase()
         loadImageUseCase = LoadImageUseCase()
-        networkService = NetworkService()
-        presenter = Presenter()
-        view = ViewController()
-        view.output = presenter
-        presenter.view = view
     }
 
     override func tearDown() {
         getAllHeroesUseCase = nil
         loadImageUseCase = nil
-        networkService = nil
-        presenter = nil
-        view = nil
         
         super.tearDown()
     }
@@ -50,12 +43,21 @@ class FlightsTests: XCTestCase {
         let expectation = expectation(description: #function)
         var expectedList: [HeroDTO] = []
         
-        getAllHeroesUseCase.getAllHeroes { heroes in
-            expectation.fulfill()
-            expectedList = heroes
-        }
+        getAllHeroesUseCase.getAllHeroes(from: .local)
+            .sink(
+                receiveCompletion: { _ in
+                    expectation.fulfill()
+                },
+                receiveValue: { heroes in
+                    expectedList = heroes
+                }
+            )
+            .store(in: &cancellables)
+        
         waitForExpectations(timeout: 5, handler: nil)
         
-        XCTAssertEqual(expectedList, [])
+        XCTAssertEqual(expectedList.count, 1)
+        XCTAssertEqual(expectedList.first!.id, 1)
+        XCTAssertEqual(expectedList.first!.name, "X")
     }
 }

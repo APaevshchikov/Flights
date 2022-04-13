@@ -17,6 +17,10 @@
 		A03DEE5827FB8FEA0042755F /* ViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DEE5727FB8FEA0042755F /* ViewInput.swift */; };
 		A044AA4D27D9684800A78419 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044AA4C27D9684800A78419 /* Presenter.swift */; };
 		A04B96172806059900E88A3E /* LoadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04B96162806059900E88A3E /* LoadImageUseCase.swift */; };
+		A056B74728073B1B000F666F /* GetAllHeroesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B74628073B1B000F666F /* GetAllHeroesRepository.swift */; };
+		A056B74B28073C3A000F666F /* GetAllHeroesRepositoryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B74A28073C3A000F666F /* GetAllHeroesRepositoryable.swift */; };
+		A056B74F28073CEE000F666F /* GetAllHeroesRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B74E28073CEE000F666F /* GetAllHeroesRemoteStorage.swift */; };
+		A056B75128073CF6000F666F /* GetAllHeroesLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056B75028073CF6000F666F /* GetAllHeroesLocalStorage.swift */; };
 		A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */; };
 		A08F4BAC27DCC1A700D72A97 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; };
 		A08F4BAD27DCC1A700D72A97 /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A08F4BAB27DCC1A700D72A97 /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -73,6 +77,10 @@
 		A03DEE5727FB8FEA0042755F /* ViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInput.swift; sourceTree = "<group>"; };
 		A044AA4C27D9684800A78419 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		A04B96162806059900E88A3E /* LoadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageUseCase.swift; sourceTree = "<group>"; };
+		A056B74628073B1B000F666F /* GetAllHeroesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllHeroesRepository.swift; sourceTree = "<group>"; };
+		A056B74A28073C3A000F666F /* GetAllHeroesRepositoryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllHeroesRepositoryable.swift; sourceTree = "<group>"; };
+		A056B74E28073CEE000F666F /* GetAllHeroesRemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllHeroesRemoteStorage.swift; sourceTree = "<group>"; };
+		A056B75028073CF6000F666F /* GetAllHeroesLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllHeroesLocalStorage.swift; sourceTree = "<group>"; };
 		A08F4BA827DCAD8F00D72A97 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A0D0B73A27D6683D0049343F /* Flights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D0B73D27D6683D0049343F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,8 +199,8 @@
 		A04B96182806067900E88A3E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				A02EF14927E543BA006587F9 /* GetAllHeroesUseCase.swift */,
-				A04B96162806059900E88A3E /* LoadImageUseCase.swift */,
+				A056B74428073AEE000F666F /* GetAllHeroesUseCase */,
+				A056B74528073AFF000F666F /* LoadImageUseCase */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -204,6 +212,50 @@
 				A03DEE5427FB8FB20042755F /* View */,
 			);
 			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		A056B74428073AEE000F666F /* GetAllHeroesUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A056B74C28073CA4000F666F /* Domain */,
+				A056B74D28073CB9000F666F /* Data */,
+			);
+			path = GetAllHeroesUseCase;
+			sourceTree = "<group>";
+		};
+		A056B74528073AFF000F666F /* LoadImageUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A04B96162806059900E88A3E /* LoadImageUseCase.swift */,
+			);
+			path = LoadImageUseCase;
+			sourceTree = "<group>";
+		};
+		A056B74C28073CA4000F666F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A02EF14927E543BA006587F9 /* GetAllHeroesUseCase.swift */,
+				A056B74A28073C3A000F666F /* GetAllHeroesRepositoryable.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A056B74D28073CB9000F666F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A056B74628073B1B000F666F /* GetAllHeroesRepository.swift */,
+				A056B75228073CFD000F666F /* Storages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A056B75228073CFD000F666F /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				A056B74E28073CEE000F666F /* GetAllHeroesRemoteStorage.swift */,
+				A056B75028073CF6000F666F /* GetAllHeroesLocalStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		A0D0B73127D6683C0049343F = {
@@ -401,17 +453,21 @@
 				A044AA4D27D9684800A78419 /* Presenter.swift in Sources */,
 				A02EF14A27E543BA006587F9 /* GetAllHeroesUseCase.swift in Sources */,
 				A03DEE5627FB8FC80042755F /* ViewOutput.swift in Sources */,
+				A056B74728073B1B000F666F /* GetAllHeroesRepository.swift in Sources */,
+				A056B75128073CF6000F666F /* GetAllHeroesLocalStorage.swift in Sources */,
 				A03DEE5827FB8FEA0042755F /* ViewInput.swift in Sources */,
 				A0D0B77027D7B8580049343F /* UIView + Extension.swift in Sources */,
 				A02C723C28030B30000C5A00 /* URLBuilder.swift in Sources */,
 				A02C723F28031144000C5A00 /* HeroDTO.swift in Sources */,
 				A01A81C028023ECC0066C733 /* NetworkService.swift in Sources */,
+				A056B74F28073CEE000F666F /* GetAllHeroesRemoteStorage.swift in Sources */,
 				A0D0B74227D6683D0049343F /* ViewController.swift in Sources */,
 				A0D0B73E27D6683D0049343F /* AppDelegate.swift in Sources */,
 				A0D0B74027D6683D0049343F /* SceneDelegate.swift in Sources */,
 				A08F4BA927DCAD8F00D72A97 /* DetailViewController.swift in Sources */,
 				A01A81B828023A300066C733 /* RequestManager.swift in Sources */,
 				A01A81BA28023C980066C733 /* NetworkRequest.swift in Sources */,
+				A056B74B28073C3A000F666F /* GetAllHeroesRepositoryable.swift in Sources */,
 				A04B96172806059900E88A3E /* LoadImageUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,19 +12,6 @@ struct HeroDTO: Codable {
     let name: String
     let image: HeroDTOImage
     
-    static var mockHeroDTO: HeroDTO {
-        HeroDTO(
-            id: 1,
-            name: "",
-            image: HeroDTOImage(
-                xs: "",
-                sm: "",
-                md: "",
-                lg: ""
-            )
-        )
-    }
-    
     enum CodingKeys: String, CodingKey {
         case id
         case name
