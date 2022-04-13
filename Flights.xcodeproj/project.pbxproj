@@ -173,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				A02C7244280320EC000C5A00 /* Cell */,
-				A02C7245280320F4000C5A00 /* DetailView */,
 				A0D0B74127D6683D0049343F /* ViewController.swift */,
 				A03DEE5527FB8FC80042755F /* ViewOutput.swift */,
 				A03DEE5727FB8FEA0042755F /* ViewInput.swift */,
@@ -196,6 +195,15 @@
 				A04B96162806059900E88A3E /* LoadImageUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		A056B7432807390F000F666F /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A03DEE5927FB908F0042755F /* Presenter */,
+				A03DEE5427FB8FB20042755F /* View */,
+			);
+			path = "Main Screen";
 			sourceTree = "<group>";
 		};
 		A0D0B73127D6683C0049343F = {
@@ -222,10 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				A02C724228032063000C5A00 /* App-Scene Delegates */,
+				A056B7432807390F000F666F /* Main Screen */,
+				A02C7245280320F4000C5A00 /* DetailView */,
 				A02C723D28031133000C5A00 /* DTO */,
 				A01A81B4280239800066C733 /* Network */,
-				A03DEE5427FB8FB20042755F /* View */,
-				A03DEE5927FB908F0042755F /* Presenter */,
 				A04B96182806067900E88A3E /* UseCases */,
 				A02C7243280320D5000C5A00 /* Extensions */,
 				A0D0B74627D6683D0049343F /* Assets.xcassets */,
