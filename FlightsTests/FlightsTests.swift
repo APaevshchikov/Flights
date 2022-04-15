@@ -43,7 +43,7 @@ class FlightsTests: XCTestCase {
         let expectation = expectation(description: #function)
         var expectedList: [HeroDTO] = []
         
-        getAllHeroesUseCase.getAllHeroes(from: .local)
+        getAllHeroesUseCase.getAllHeroes(from: .localStorage)
             .sink(
                 receiveCompletion: { _ in
                     expectation.fulfill()

@@ -25,7 +25,7 @@ final class Presenter {
 extension Presenter: ViewOutput {
     func viewDidLoad() {
         view.setupView(with: .loadingView)
-        getAllHeroesUseCase.getAllHeroes(from: .remote)
+        getAllHeroesUseCase.getAllHeroes(from: .remoteStorage)
             .sink(
                 receiveCompletion: { [weak self] _ in
                     self?.view.setupView(with: .tableView)

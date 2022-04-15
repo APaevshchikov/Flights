@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 enum Storage {
-    case remote
-    case local
+    case remoteStorage
+    case localStorage
 }
 
 protocol GetAllHeroesRepositoryable {

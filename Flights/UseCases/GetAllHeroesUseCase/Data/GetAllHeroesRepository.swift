@@ -14,10 +14,10 @@ final class GetAllHeroesRepository: GetAllHeroesRepositoryable {
     
     func getAllHeroes(from storage: Storage) -> AnyPublisher<[HeroDTO], NetworkError> {
         switch storage {
-        case .remote:
+        case .remoteStorage:
            return remoteStorage.getAllHeroes()
                 .eraseToAnyPublisher()
-        case .local:
+        case .localStorage:
            return localStorage.getAllHeroes()
                 .collect()
                 .eraseToAnyPublisher()
